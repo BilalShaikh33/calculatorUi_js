@@ -79,3 +79,18 @@ function cubeRoot(){
        inputData.value  =  Math.cbrt(inputData.value)
 }
 
+function PercentageSol(){
+    // 2+50%  =[2,50]
+
+    // 50%
+    // 2+50%
+    var value = inputData.value+"%"
+    var result = 0
+
+    if(value.endsWith("%")){
+        var numb =parseFloat(value)
+        result = numb/100
+    }
+    if(value.endsWith("%")&& value.includes("+")){
+        var [a,b] = value.split("+")
+
