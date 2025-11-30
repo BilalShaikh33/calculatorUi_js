@@ -37,12 +37,34 @@ function setNum(numb) {
     }
     else {
         inputData.value += numb
-
     }
-
-
-
 }
+
+
+document.addEventListener("keydown", function (val) {
+
+    val.preventDefault();
+    if (val.key === "Enter") {
+        Equal();
+    }
+    else if (Number(val.key)>= 0  && Number(val.key)<= 9 ) {
+        setNum(val.key)
+        
+        
+    }
+    else if (val.key == "+" ||  val.key == "-"  || val.key == "/"  || val.key == "*") {
+        setNum(val.key)
+    }
+    else if (val.key == "Backspace") {
+       backSpace()
+    }
+    
+    
+    
+}
+);
+
+
 
 function Equal() {
     inputData.value = eval(inputData.value)
@@ -79,18 +101,82 @@ function cubeRoot(){
        inputData.value  =  Math.cbrt(inputData.value)
 }
 
+
+
+
 function PercentageSol(){
-    // 2+50%  =[2,50]
-
-    // 50%
-    // 2+50%
-    var value = inputData.value+"%"
     var result = 0
-
-    if(value.endsWith("%")){
-        var numb =parseFloat(value)
+    var value = inputData.value + "%"
+    if (value.toString().includes("%")){
+        var numb = parseFloat(value)
         result = numb/100
     }
-    if(value.endsWith("%")&& value.includes("+")){
-        var [a,b] = value.split("+")
+    if (value.toString().includes("%") && value.toString().includes("+")){
+        var res = value.toString().split("+")
+        var numb1 = res[0]
+        var numb2 = res[1]
+        var num3 = (parseFloat(numb2)/100)*numb1
+        var result =  Number(numb1) +Number(num3)  
+        console.log(result)
+        inputData.value = result
+    }
+    if (value.toString().includes("%") && value.toString().includes("-")){
+        var res = value.toString().split("-")
+        var numb1 = res[0]
+        var numb2 = res[1]
+        var num3 = (parseFloat(numb2)/100)*numb1
+        var result =  Number(numb1) -Number(num3)  
+        console.log(result)
+        inputData.value = result
+    }
+    if (value.toString().includes("%") && value.toString().includes("*")){
+        var res = value.toString().split("*")
+        var numb1 = res[0]
+        var numb2 = res[1]
+        var num3 = (parseFloat(numb2)/100)*numb1
+        var result =  Number(numb1) *Number(num3)  
+        console.log(result)
+        inputData.value = result
+    }
+    if (value.toString().includes("%") && value.toString().includes("/")){
+        var res = value.toString().split("/")
+        var numb1 = res[0]
+        var numb2 = res[1]
+        var num3 = (parseFloat(numb2)/100)*numb1
+        var result =  Number(numb1) /Number(num3)  
+        console.log(result)
+        inputData.value = result
 
+
+    }
+}
+
+// function PercentageSol(){
+//     // 2+50%  =[2,50]
+
+//     // 50%
+//     // 2+50%
+//     var value = inputData.value+ "%"
+//     var result = 0
+//     console.log(value)
+
+//     if(value.toString().includes("%")){
+//         var numb = parseFloat(value)
+//         result = numb/100
+//     }
+
+//     if (value.toString().includes("%") && value.toString().includes("+"))  {
+//         var numb = value.toString().split("+")
+//        var numb1 =  numb[0] 
+//        var numb2 =  numb[1] 
+//        var numb3  = parseFloat((numb2)/100)*numb1
+//        var result = Number(numb1)/ Number(numb3)
+//        console.log(result)
+//        inputData.value = result
+       
+
+        
+//     }
+
+  
+// }

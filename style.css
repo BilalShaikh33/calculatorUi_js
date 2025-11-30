@@ -5,10 +5,11 @@ input {
 .container {
     width: 50%;
     margin: auto;
-    background-color: rgba(239, 241, 236, 0.554);
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 20px;
-    border: 3px solid rgb(224, 5, 5);
+    border: 3px solid black;
     border-radius: 20px;
 }
 
