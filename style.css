@@ -229,3 +229,68 @@ button[onclick="Equal()"]{
     transform:translate(-50%,-50%);
     z-index:0;
 }
+
+.container{
+    position: relative;
+    z-index: 10;
+}
+
+
+h1{
+    text-align:center;
+    font-size:2.5rem;
+    font-weight:700;
+    letter-spacing:2px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #c4b5fd,
+        #60a5fa,
+        #22d3ee
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 0 10px rgba(168,85,247,.5),
+        0 0 20px rgba(59,130,246,.3);
+
+    margin-bottom:25px;
+
+    animation: glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowText{
+    from{
+        filter: drop-shadow(0 0 5px rgba(168,85,247,.4));
+    }
+
+    to{
+        filter: drop-shadow(0 0 20px rgba(34,211,238,.7));
+    }
+}
+
+h1::after{
+    content:'';
+    display:block;
+    width:120px;
+    height:3px;
+    margin:10px auto 0;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #7c3aed,
+        #06b6d4,
+        transparent
+    );
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 10px #7c3aed,
+        0 0 20px #06b6d4;
+}
